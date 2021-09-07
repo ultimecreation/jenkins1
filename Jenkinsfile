@@ -3,12 +3,15 @@ pipeline {
     stages {
         stage('Build') { 
             steps {
-               echo 'Building...'
+               echo 'Install fake composer'
+               echo 'Install fake node modules'
+               sh 'chmod +x test.sh'
             }
         }
         stage('Test') { 
             steps {
                 echo 'Testing...'
+                sh './test.sh'
             }
         }
         stage('Deploy') { 
